@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Camera Feed</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        img {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+        }
+        .start {
+            background-color: green;
+            color: white;
+        }
+        .stop {
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Live Camera Feed</h1>
+    <img src="{{ url_for('video_feed') }}">
+    <br>
+    <button class="start" onclick="fetch('/start_record', {method: 'POST'})">Start Recording</button>
+    <button class="stop" onclick="fetch('/stop_record', {method: 'POST'})">Stop Recording</button>
+</body>
+</html>
